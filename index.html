@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workout Coach — Romanian Deadlift</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Workout Coach <span class="exercise" id="exercise-name">Romanian Deadlift</span></h1>
+    <div class="hint">Side view. Copy the movement in time with the figure.</div>
+  </header>
+  <div class="layout">
+    <div class="stage">
+      <canvas id="view" width="900" height="800" aria-label="Side-view figure performing the exercise"></canvas>
+      <div class="overlay-countdown" id="countdown-overlay" aria-live="polite"></div>
+    </div>
+    <aside class="panel">
+      <div class="counters">
+        <div class="counter">
+          <div class="label">Set</div>
+          <div class="value"><span id="set-now">1</span><span> / </span><span id="set-total">3</span></div>
+        </div>
+        <div class="counter">
+          <div class="label">Rep</div>
+          <div class="value"><span id="rep-now">0</span><span> / </span><span id="rep-total">10</span></div>
+        </div>
+      </div>
+      <div class="phase">
+        <div class="name" id="phase-label">Ready</div>
+        <div class="cue" id="phase-cue">Stand tall, bar over mid-foot, soft knees.</div>
+        <div class="bar" aria-hidden="true"><i id="phase-bar"></i></div>
+        <div class="meta" id="phase-meta">Press Start when you are ready.</div>
+        <div class="status-rest" id="rest-clock" hidden></div>
+      </div>
+      <div class="controls">
+        <button type="button" class="primary" id="btn-start">Start</button>
+        <button type="button" id="btn-pause" disabled>Pause</button>
+        <button type="button" class="danger" id="btn-reset">Reset</button>
+      </div>
+      <div class="fields">
+        <h2>Session</h2>
+        <div class="row">
+          <label>Sets <input id="in-sets" type="number" min="1" max="20" value="3"></label>
+          <label>Reps <input id="in-reps" type="number" min="1" max="50" value="10"></label>
+        </div>
+        <h2>Tempo (seconds)</h2>
+        <div class="row">
+          <label>Down <input id="in-down" type="number" min="0" max="10" step="0.1" value="3"></label>
+          <label>Pause <input id="in-pause" type="number" min="0" max="5" step="0.1" value="0.5"></label>
+        </div>
+        <div class="row">
+          <label>Up <input id="in-up" type="number" min="0" max="10" step="0.1" value="1"></label>
+          <label>Top <input id="in-top" type="number" min="0" max="5" step="0.1" value="0.4"></label>
+        </div>
+        <label>Rest between sets (s) <input id="in-rest" type="number" min="0" max="300" step="1" value="60"></label>
+        <h2>Guides</h2>
+        <div class="toggles">
+          <label class="check"><input id="tog-path" type="checkbox"> Bar path and ghost trail</label>
+          <label class="check"><input id="tog-angles" type="checkbox"> Joint-angle readout</label>
+        </div>
+      </div>
+      <footer class="note">
+        Offline browser app. The figure holds a neutral spine, a nearly constant
+        soft knee, and a bar path over mid-foot. Watch the hips travel back on
+        the way down, then drive them forward on the way up.
+      </footer>
+    </aside>
+  </div>
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
